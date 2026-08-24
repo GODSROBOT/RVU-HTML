@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Feedback Form</title>
+    
+    <!-- Clean, professional font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Professional CSS Variables */
+        :root {
+            --brand-color: #da930f; /* Corporate Blue */
+            --brand-hover: #da930f;
+            --brand-light: #eff6ff;
+            
+            --bg-body: #f3f4f6;
+            --bg-surface: #ffffff;
+            
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-tertiary: #9ca3af;
+            
+            --border-color: #d1d5db;
+            --border-hover: #9ca3af;
+            
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+            line-height: 1.5;
+        }
+
+        /* Form Container */
+        .form-container {
+            background-color: var(--bg-surface);
+            width: 100%;
+            max-width: 600px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+        }
+
+        /* Header integrated into the card */
+        .form-header {
+            padding: 32px 32px 24px 32px;
+            border-bottom: 1px solid #e5e7eb;
+            background-color: #da930f;
+        }
+
+        .form-header h1 {
+            margin: 0 0 8px 0;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.025em;
+        }
+
+        .form-header p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Form Body */
+        form {
+            padding: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        /* Standard Inputs */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 14px;
+            font-size: 14px;
+            font-family: inherit;
+            color: var(--text-primary);
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-sm);
+            box-sizing: border-box;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        input:hover,
+        select:hover,
+        textarea:hover {
+            border-color: var(--border-hover);
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--brand-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Custom Professional Radio/Checkboxes */
+        .options-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .option-label {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .option-label:hover {
+            background-color: #f9fafb;
+            border-color: var(--border-hover);
+        }
+
+        /* Hide default inputs */
+        .option-label input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Custom Indicator Box */
+        .indicator {
+            height: 16px;
+            width: 16px;
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            margin-right: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        /* Radio gets circle, Checkbox gets square */
+        input[type="radio"] ~ .indicator {
+            border-radius: 50%;
+        }
+        
+        input[type="checkbox"] ~ .indicator {
+            border-radius: 4px;
+        }
+
+        /* Checked State Styling */
+        .option-label:has(input:checked) {
+            border-color: var(--brand-color);
+            background-color: var(--brand-light);
+            color: var(--brand-color);
+        }
+
+        .option-label input:checked ~ .indicator {
+            background-color: var(--brand-color);
+            border-color: var(--brand-color);
+        }
+
+        /* Inner Dot for Radio */
+        input[type="radio"] ~ .indicator::after {
+            content: "";
+            display: none;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        /* Inner Check for Checkbox */
+        input[type="checkbox"] ~ .indicator::after {
+            content: "";
+            display: none;
+            width: 4px;
+            height: 8px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-bottom: 2px;
+        }
+
+        .option-label input:checked ~ .indicator::after {
+            display: block;
+        }
+
+        /* Focus rings for accessibility */
+        .option-label input:focus-visible ~ .indicator {
+            outline: 2px solid var(--brand-color);
+            outline-offset: 2px;
+        }
+
+        /* Form Actions */
+        .form-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: inherit;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: background-color 0.15s ease, border-color 0.15s ease;
+            box-sizing: border-box;
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-surface);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #f9fafb;
+            color: var(--text-primary);
+        }
+
+        .btn-primary {
+            background-color: var(--brand-color);
+            color: #ffffff;
+            border: 1px solid var(--brand-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--brand-hover);
+            border-color: var(--brand-hover);
+        }
+
+        .btn-primary:focus-visible, .btn-secondary:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37, 100, 235, 0.945);
+        }
+
+        .btn-primary:active, .btn-secondary:active {
+            transform: translateY(1px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 13px;
+            color: var(--text-tertiary);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 16px;
+            }
+            .form-header {
+                padding: 24px;
+            }
+            form {
+                padding: 24px;
+            }
+            .form-actions {
+                flex-direction: column-reverse;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Course Evaluation</h1>
+                <p>Please take a moment to provide your feedback. Your insights help us improve.</p>
+            </div>
+
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" placeholder="e.g. Jane Doe" minlength="3" maxlength="50" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" pattern="[0-9]{10}">
+                </div>
+
+                <div class="form-group">
+                    <label for="course">Select Course *</label>
+                    <select id="course" name="course" required>
+                        <option value="" disabled selected>Select a course...</option>
+                        <option value="web">Web and UX Design</option>
+                        <option value="programming">Programming Fundamentals</option>
+                        <option value="database">Database Management</option>
+                        <option value="data">Data Science & Analytics</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Overall Rating *</label>
+                    <div class="options-grid">
+                        <label class="option-label">
+                            <input type="radio" name="rating" value="excellent" required>
+                            <span class="indicator"></span> Excellent
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="rating" value="good">
+                            <span class="indicator"></span> Good
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="rating" value="average">
+                            <span class="indicator"></span> Average
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="rating" value="poor">
+                            <span class="indicator"></span> Poor
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>What areas stood out to you?</label>
+                    <div class="options-grid">
+                        <label class="option-label">
+                            <input type="checkbox" name="like" value="content">
+                            <span class="indicator"></span> Course Content
+                        </label>
+                        <label class="option-label">
+                            <input type="checkbox" name="like" value="teaching">
+                            <span class="indicator"></span> Quality of Teaching
+                        </label>
+                        <label class="option-label">
+                            <input type="checkbox" name="like" value="materials">
+                            <span class="indicator"></span> Study Materials
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Would you recommend this course? *</label>
+                    <div class="options-grid">
+                        <label class="option-label">
+                            <input type="radio" name="recommend" value="yes" required>
+                            <span class="indicator"></span> Yes
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="recommend" value="no">
+                            <span class="indicator"></span> No
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="recommend" value="maybe">
+                            <span class="indicator"></span> Not sure
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="feedback">Additional Feedback *</label>
+                    <textarea id="feedback" name="feedback" placeholder="Please provide any additional details..." minlength="10" maxlength="500" required></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn-primary" id="submitBtn">Submit feedback</button>
+                </div>
+            </form>
+        </div>
+
+        <footer>
+            &copy; 2026 Educational Systems Inc.
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("feedbackForm");
+            const submitBtn = document.getElementById("submitBtn");
+            const cancelBtn = document.getElementById("cancelBtn");
+
+            // Form Submit handler
+            form.addEventListener("submit", (e) => {
+                e.preventDefault(); 
+                
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = "Submitting...";
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = "0.7";
+                submitBtn.style.cursor = "not-allowed";
+
+                // Simulate network request
+                setTimeout(() => {
+                    window.location.href = "success.html";
+                }, 800);
+            });
+
+            // Cancel button handler
+            cancelBtn.addEventListener("click", () => {
+                cancelBtn.innerHTML = "Canceling...";
+                cancelBtn.disabled = true;
+                
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 400);
+            });
+        });
+    </script>
+</body>
+</html>

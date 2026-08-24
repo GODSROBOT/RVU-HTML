@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student CV</title>
+
+    <style>
+        /* =========================
+           GENERAL STYLING
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #e9edf2;
+            color: #333;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           CV CONTAINER
+        ========================== */
+
+        .cv-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background-color: color-mix(in srgb, red 25%, rgb(231, 194, 28) 68%);
+            color: white;
+            padding: 35px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+
+        header h2 {
+            font-size: 20px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .contact {
+            font-size: 15px;
+        }
+
+        .contact span {
+            margin: 0 8px;
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================== */
+
+        main {
+            padding: 30px 40px;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================== */
+
+        section {
+            margin-bottom: 28px;
+        }
+
+        section h2 {
+            color: #eeca00;
+            border-bottom: 2px solid #cc9f0c;
+            padding-bottom: 7px;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+
+        /* =========================
+           PROFILE
+        ========================== */
+
+        .profile p {
+            text-align: justify;
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================== */
+
+        .education-item {
+            margin-bottom: 18px;
+            padding-left: 15px;
+            border-left: 4px solid #cc9f0c;
+        }
+
+        .education-item h3 {
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .education-item .year {
+            color: #666;
+            font-style: italic;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background-color: #cc9f0c;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 20px;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================== */
+
+        .project {
+            margin-bottom: 18px;
+        }
+
+        .project h3 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .project p {
+            text-align: justify;
+        }
+
+
+        /* =========================
+           CERTIFICATIONS
+        ========================== */
+
+        .certifications li {
+            margin-left: 25px;
+            margin-bottom: 7px;
+        }
+
+
+        /* =========================
+           ACHIEVEMENTS
+        ========================== */
+
+        .achievements li {
+            margin-left: 25px;
+            margin-bottom: 7px;
+        }
+
+
+        /* =========================
+           PERSONAL DETAILS
+        ========================== */
+
+        .details {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .details td {
+            padding: 7px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .details td:first-child {
+            font-weight: bold;
+            width: 30%;
+            color: #cc9f0c;
+        }
+
+
+        /* =========================
+           DECLARATION
+        ========================== */
+
+        .declaration p {
+            text-align: justify;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background-color: #cc720c;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+
+        /* =========================
+           PRINT BUTTON
+        ========================== */
+
+        .print-button {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .print-button button {
+            background-color: #d69406;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .print-button button:hover {
+            background-color: #d35907;
+        }
+
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            .cv-container {
+                width: 95%;
+                margin: 10px auto;
+            }
+
+            header {
+                padding: 25px 15px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            header h2 {
+                font-size: 17px;
+            }
+
+            main {
+                padding: 25px 20px;
+            }
+
+            .contact span {
+                display: block;
+                margin: 5px;
+            }
+
+            .skills {
+                flex-direction: column;
+            }
+
+            .skill {
+                text-align: center;
+            }
+        }
+
+
+        /* =========================
+           PRINT STYLING
+        ========================== */
+
+        @media print {
+
+            body {
+                background-color: white;
+            }
+
+            .cv-container {
+                width: 100%;
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .print-button {
+                display: none;
+            }
+
+            footer {
+                display: none;
+            }
+
+            header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         CV CONTAINER
+    ========================== -->
+
+    <div class="cv-container">
+
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <header>
+
+            <h1>MANVITH SAGAR K M</h1>
+
+            <h2>
+                Computer Science Student
+            </h2>
+
+            <div class="contact">
+
+                <span>📧 manvithskmbca26@blr.rvu.edu.in</span>
+
+                <span>📱 +91 9113035705</span>
+
+                <span>📍 Bangalore, India</span>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main>
+
+
+            <!-- PROFILE -->
+
+            <section class="profile">
+
+                <h2>Career Objective</h2>
+
+                <p>
+
+                    A motivated and enthusiastic Computer Science student
+                    seeking opportunities to apply technical knowledge and
+                    develop practical skills in software development and
+                    web technologies. Interested in learning emerging
+                    technologies and contributing effectively to
+                    challenging projects.
+
+                </p>
+
+            </section>
+
+
+            <!-- EDUCATION -->
+
+            <section>
+
+                <h2>Education</h2>
+
+
+                <article class="education-item">
+
+                    <h3>
+                        Bachelor of Technology in Computer Science
+                    </h3>
+
+                    <p>
+                        RVU University, Bangalore
+                    </p>
+
+                    <p class="year">
+                        2023 - 2027
+                    </p>
+
+                    <p>
+                        CGPA: 8.5 / 10
+                    </p>
+
+                </article>
+
+
+                <article class="education-item">
+
+                    <h3>
+                        Higher Secondary Education
+                    </h3>
+
+                    <p>
+                        ABC Higher Secondary School
+                    </p>
+
+                    <p class="year">
+                        2021 - 2023
+                    </p>
+
+                    <p>
+                        Percentage: 88%
+                    </p>
+
+                </article>
+
+
+                <article class="education-item">
+
+                    <h3>
+                        Secondary School Education
+                    </h3>
+
+                    <p>
+                        ABC High School
+                    </p>
+
+                    <p class="year">
+                        Completed in 2021
+                    </p>
+
+                    <p>
+                        Percentage: 92%
+                    </p>
+
+                </article>
+
+            </section>
+
+
+            <!-- TECHNICAL SKILLS -->
+
+            <section>
+
+                <h2>Technical Skills</h2>
+
+                <div class="skills">
+
+                    <span class="skill">HTML5</span>
+
+                    <span class="skill">CSS3</span>
+
+                    <span class="skill">JavaScript</span>
+
+                    <span class="skill">Python</span>
+
+                    <span class="skill">Java</span>
+
+                    <span class="skill">C</span>
+
+                    <span class="skill">SQL</span>
+
+                    <span class="skill">Git</span>
+
+                </div>
+
+            </section>
+
+
+            <!-- PROJECTS -->
+
+            <section>
+
+                <h2>Academic Projects</h2>
+
+
+                <article class="project">
+
+                    <h3>
+                        1. Student Management System
+                    </h3>
+
+                    <p>
+
+                        Developed a student management application for
+                        maintaining student details, academic records,
+                        attendance, and course information.
+
+                    </p>
+
+                    <p>
+                        <strong>Technologies:</strong>
+                        HTML, CSS, JavaScript, SQL
+                    </p>
+
+                </article>
+
+
+                <article class="project">
+
+                    <h3>
+                        2. Personal Portfolio Website
+                    </h3>
+
+                    <p>
+
+                        Designed and developed a responsive personal
+                        portfolio website to showcase academic achievements,
+                        technical skills, projects, and contact information.
+
+                    </p>
+
+                    <p>
+                        <strong>Technologies:</strong>
+                        HTML5, CSS3, JavaScript
+                    </p>
+
+                </article>
+
+
+                <article class="project">
+
+                    <h3>
+                        3. Online Feedback System
+                    </h3>
+
+                    <p>
+
+                        Created a web-based feedback system that allows
+                        users to submit ratings, comments, and suggestions
+                        through an interactive form.
+
+                    </p>
+
+                    <p>
+                        <strong>Technologies:</strong>
+                        HTML5, CSS3, JavaScript
+                    </p>
+
+                </article>
+
+            </section>
+
+
+            <!-- CERTIFICATIONS -->
+
+            <section class="certifications">
+
+                <h2>Certifications</h2>
+
+                <ul>
+
+                    <li>
+                        Introduction to Web Development
+                    </li>
+
+                    <li>
+                        Python Programming Fundamentals
+                    </li>
+
+                    <li>
+                        Database Management using SQL
+                    </li>
+
+                    <li>
+                        Introduction to Artificial Intelligence
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- ACHIEVEMENTS -->
+
+            <section class="achievements">
+
+                <h2>Achievements</h2>
+
+                <ul>
+
+                    <li>
+                        Participated in inter-college technical competitions.
+                    </li>
+
+                    <li>
+                        Completed multiple academic projects.
+                    </li>
+
+                    <li>
+                        Participated in coding and programming events.
+                    </li>
+
+                    <li>
+                        Presented technical projects at college events.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- PERSONAL DETAILS -->
+
+            <section>
+
+                <h2>Personal Details</h2>
+
+                <table class="details">
+
+                    <tr>
+                        <td>Date of Birth</td>
+                        <td>01 January 2005</td>
+                    </tr>
+
+                    <tr>
+                        <td>Nationality</td>
+                        <td>Indian</td>
+                    </tr>
+
+                    <tr>
+                        <td>Languages Known</td>
+                        <td>English, Tamil, Hindi</td>
+                    </tr>
+
+                    <tr>
+                        <td>Hobbies</td>
+                        <td>Reading, Coding, Photography</td>
+                    </tr>
+
+                </table>
+
+            </section>
+
+
+            <!-- DECLARATION -->
+
+            <section class="declaration">
+
+                <h2>Declaration</h2>
+
+                <p>
+
+                    I hereby declare that the information provided above
+                    is true and correct to the best of my knowledge and
+                    belief.
+
+                </p>
+
+                <br>
+
+                <p>
+                    <strong>Place:</strong> Chennai
+                </p>
+
+                <p>
+                    <strong>Date:</strong> ____________
+                </p>
+
+                <br>
+
+                <p>
+                    <strong style="padding-right: 180px; margin: 20px;">Signature: <input type="text" name="Signature" id=""></strong>
+                    ____________________
+                </p>
+
+            </section>
+
+
+        </main>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <p>
+                Student Curriculum Vitae
+            </p>
+
+        </footer>
+
+
+    </div>
+
+
+    <!-- =========================
+         PRINT BUTTON
+    ========================== -->
+
+    <div class="print-button">
+
+        <button onclick="window.print()">
+            Print / Save as PDF
+        </button>
+
+    </div>
+
+
+</body>
+
+</html>
