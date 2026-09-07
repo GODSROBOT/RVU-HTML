@@ -4,293 +4,1160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Personal Website</title>
+
+    <title>Manvith Sagar K M | Portfolio</title>
+
     <style>
+        /* =========================
+           RESET
+        ========================== */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f5f8;
-            color: #333;
+            background: var(--bg-gradient);
+            color: #222;
             line-height: 1.6;
         }
 
+        a {
+            text-decoration: none;
+        }
+
+        /* =========================
+           COLORS
+        ========================== */
+
+        :root {
+            --primary: #ec9e0b;
+            --primary-dark: #d88900;
+            --text: #222;
+            --muted: #666;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --border: #e8e8e8;
+
+            --bg-gradient: linear-gradient(135deg, #fff8e7, #ffffff);
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
         header {
-            background-color: #ec9e0b;
-            color: white;
-            text-align: center;
-            padding: 30px;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        header h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
+        .navbar {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        header p {
-            font-size: 17px;
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--text);
+        }
+
+        .logo span {
+            color: var(--primary);
         }
 
         nav {
-            background-color: #7a6a3e;
-            text-align: center;
-            padding: 15px;
-            border: 1px solid #ec9e0b;
+            display: flex;
+            gap: 25px;
         }
 
         nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
+            color: #444;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.2s ease;
         }
 
         nav a:hover {
-            color: #ffd166;
+            color: var(--primary);
         }
 
+        /* =========================
+           GENERAL
+        ========================== */
+
         main {
-            width: 90%;
-            max-width: 1000px;
-            margin: 30px auto;
+            max-width: 1100px;
+            margin: auto;
         }
 
         section {
-            background-color: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 90px 25px;
+            scroll-margin-top: 70px;
         }
 
-        section h2 {
-            color: #ec9e0b;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #ec9e0b;
-            padding-bottom: 8px;
-        }
-
-        .home {
+        .section-title {
             text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .section-title .line {
+            width: 50px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 10px;
+            margin: auto;
+        }
+
+        /* =========================
+           HOME
+        ========================== */
+
+        #home {
+            min-height: calc(100vh - 70px);
+
+            display: flex;
+            align-items: center;
+
+        }
+
+        .home-container {
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 70px;
+        }
+
+        .home-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
         }
 
         .profile {
-            width: 150px;
-            height: 150px;
+            width: 300px;
+            height: 300px;
+
+            object-fit: cover;
+
             border-radius: 50%;
-            background-color: #ec9e0b;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 50px;
+
+            border: 6px solid var(--primary);
+
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .home-content {
+            flex: 1;
+        }
+
+        .welcome {
+            color: var(--primary);
+            font-size: 14px;
             font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
         }
 
-        .home h3 {
-            font-size: 26px;
-            margin-bottom: 10px;
+        .home-content h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 15px;
         }
 
-        .about p {
-            text-align: justify;
-            margin-bottom: 10px;
+        .home-content h1 span {
+            color: var(--primary);
+        }
+
+        .home-content h2 {
+            font-size: 23px;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            max-width: 550px;
+            color: var(--muted);
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .home-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 12px 24px;
+
+            background: var(--primary);
+            color: white;
+
+            border-radius: 6px;
+
+            font-weight: bold;
+
+            transition: 0.2s ease;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 10px;
+
+            border-left: 4px solid var(--primary);
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .about-content p {
+            color: var(--muted);
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* =========================
+           EDUCATION
+        ========================== */
+
+        .education-list {
+            max-width: 850px;
+            margin: auto;
         }
 
         .education-box {
-            background-color: #f2f5f8;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-left: 5px solid #ec9e0b;
+
+            padding: 25px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid black;
+
+            border-radius: 10px;
+
+            transition: 0.2s ease;
+        }
+
+        .education-box:hover {
+            border-color: var(--primary);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
         }
 
         .education-box h3 {
-            color: #ec9e0b;
+            color: var(--primary);
+            font-size: 20px;
             margin-bottom: 5px;
         }
+
+        .education-box h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .education-box p {
+            color: black;
+            margin: 3px 0;
+        }
+
+        /* =========================
+           SKILLS
+        ========================== */
 
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            justify-content: center;
+
+            gap: 15px;
+
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .skill-link {
+            display: block;
         }
 
         .skill {
-            background-color: #ec9e0b;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 20px;
+            min-width: 135px;
+
+            background: white;
+
+            padding: 12px 18px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 8px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 9px;
+
+            color: var(--text);
+
+            font-weight: 600;
+
+            transition: 0.2s ease;
         }
 
+        .skill:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill_img {
+            width: 28px;
+            height: 28px;
+
+            object-fit: contain;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================== */
+
         .projects {
-            display: flex;
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
             gap: 20px;
-            flex-wrap: wrap;
         }
 
         .project {
-            flex: 1;
-            min-width: 250px;
-            background-color: #f2f5f8;
-            padding: 20px;
-            border-radius: 8px;
+            background: white;
+
+            padding: 25px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 10px;
+
+            transition: 0.2s ease;
         }
 
-        .project h3 {
-            color: #ec9e0b;
+        .project:hover {
+            transform: translateY(-4px);
+
+            border-color: var(--primary);
+
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-number {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 14px;
+
             margin-bottom: 10px;
         }
 
-        .contact p {
-            margin: 8px 0;
+        .project h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
         }
 
-        .contact strong {
-            color: #ec9e0b;
+        .project p {
+            color: var(--muted);
+            font-size: 15px;
         }
+
+        /* =========================
+           CONTACT FORM
+        ========================== */
+
+        .contact-button {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .contact-btn {
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        #message-form {
+            display: none;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            background: white;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--primary);
+        }
+
+        #message-form h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            height: 130px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        #thank-you {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+
+        #thank-you h3 {
+            color: var(--primary);
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        #thank-you p {
+            color: var(--muted);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
 
         footer {
-            background-color: #ec9e0b;
+            background: #222;
+
             color: white;
+
             text-align: center;
-            padding: 15px;
+
+            padding: 20px;
+
+            font-size: 14px;
         }
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 25px;
+        footer span {
+            color: var(--primary);
+        }
+
+        /* =========================
+           TABLET
+        ========================== */
+
+        @media (max-width: 850px) {
+
+            nav {
+                gap: 15px;
             }
 
-            nav a {
-                display: block;
-                margin: 8px;
+            .home-container {
+                gap: 40px;
             }
 
-            main {
-                width: 95%;
+            .profile {
+                width: 240px;
+                height: 240px;
+            }
+
+            .home-content h1 {
+                font-size: 38px;
             }
 
             .projects {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 650px) {
+
+            .navbar {
                 flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            section {
+                padding: 65px 18px;
+            }
+
+            #home {
+                min-height: auto;
+            }
+
+            .home-container {
+                flex-direction: column;
+
+                text-align: center;
+
+                gap: 40px;
+            }
+
+            .profile {
+                width: 210px;
+                height: 210px;
+            }
+
+            .home-content h1 {
+                font-size: 34px;
+            }
+
+            .home-content h2 {
+                font-size: 20px;
+            }
+
+            .intro {
+                font-size: 16px;
+            }
+
+            .home-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .contact-item strong {
+                width: auto;
             }
         }
     </style>
 </head>
 
+
 <body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
     <header>
-        <h1>Student Personal Website</h1>
-        <p>Welcome to My Personal Portfolio</p>
+
+        <div class="navbar">
+
+            <a href="#home" class="logo">
+                Manvith<span>.</span>
+            </a>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+        </div>
+
     </header>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
 
     <main>
-        <section id="home" class="home">
-            <div class="profile">S</div>
-            <h2>Home</h2>
-            <h3>Hello, I am a Manvith Sagar K M</h3>
-            <p>
-                Welcome to my personal website. I am a passionate student
-                interested in technology, programming, and web development.
-            </p>
+
+        <!-- =========================
+             HOME
+        ========================== -->
+
+        <section id="home">
+
+            <div class="home-container">
+
+                <div class="home-image">
+
+                    <img class="profile" src="/Images/pic.jpg" alt="Manvith Sagar K M">
+
+                </div>
+
+
+                <div class="home-content">
+
+                    <p class="welcome">
+                        WELCOME TO MY PORTFOLIO
+                    </p>
+
+                    <h1>
+                        Hello, I'm
+                        <span>Manvith Sagar K M</span>
+                    </h1>
+
+                    <h2>
+                        Student & Aspiring Web Developer
+                    </h2>
+
+                    <p class="intro">
+                        I am a passionate student interested in technology,
+                        programming, and web development. I enjoy learning
+                        new technologies and building useful projects.
+                    </p>
+
+                    <div class="home-buttons">
+
+                        <a href="#about" class="btn">
+                            About Me
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            Contact Me
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </section>
 
-        <section id="about" class="about">
-            <h2>About Me</h2>
-            <p>
-                I am a motivated and enthusiastic student with an interest
-                in Computer Science and Information Technology.
-            </p>
-            <p>
-                I enjoy learning new technologies and developing practical
-                applications using programming and web development skills.
-            </p>
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section id="about">
+
+            <div class="section-title">
+
+                <h2>About Me</h2>
+
+                <div class="line"></div>
+
+            </div>
+
+
+            <div class="about-content">
+
+                <p>
+                    I am a motivated and enthusiastic student with an
+                    interest in Computer Science and Information Technology.
+                </p>
+
+                <p>
+                    I enjoy learning new technologies and developing
+                    practical applications using programming and web
+                    development skills.
+                </p>
+
+            </div>
+
         </section>
+
+
+        <!-- =========================
+             EDUCATION
+        ========================== -->
 
         <section id="education">
-            <h2>Education</h2>
-            <div class="education-box">
-                <h3>Bachelor's Degree</h3>
-                <p>Computer Science and Engineering</p>
-                <p>2023 - 2027</p>
+
+            <div class="section-title">
+
+                <h2>Education</h2>
+
+                <div class="line"></div>
+
             </div>
-            <div class="education-box">
-                <h3>Higher Secondary Education</h3>
-                <p>Science Stream</p>
-                <p>2021 - 2023</p>
+
+
+            <div class="education-list">
+
+                <div class="education-box">
+
+                    <h3>Bachelor's Degree</h3>
+
+                    <h4>RV University, Bangalore</h4>
+
+                    <p>BCA - Bachelor of Computer Applications</p>
+
+                    <p>2026 - 2030</p>
+
+                </div>
+
+
+                <div class="education-box">
+
+                    <h3>Higher Secondary Education</h3>
+
+                    <h4>Aradhana Academy, JP Nagar, Bangalore</h4>
+
+                    <p>Science Stream</p>
+
+                    <p>2023 - 2024</p>
+
+                </div>
+
+
+                <div class="education-box">
+
+                    <h3>Secondary Education</h3>
+
+                    <h4>Jain Public School, Tumkur</h4>
+
+                    <p>Secondary School Education</p>
+
+                    <p>Completed in 2022</p>
+
+                </div>
+
             </div>
-            <div class="education-box">
-                <h3>Secondary Education</h3>
-                <p>Secondary School Education</p>
-                <p>Completed in 2021</p>
-            </div>
+
         </section>
+
+
+        <!-- =========================
+             SKILLS
+        ========================== -->
 
         <section id="skills">
-            <h2>My Skills</h2>
-            <div class="skills">
-                <span class="skill">HTML5</span>
-                <span class="skill">CSS3</span>
-                <span class="skill">JavaScript</span>
-                <span class="skill">Python</span>
-                <span class="skill">Java</span>
-                <span class="skill">C Programming</span>
-                <span class="skill">SQL</span>
+
+            <div class="section-title">
+
+                <h2>My Skills</h2>
+
+                <div class="line"></div>
+
             </div>
+
+
+            <div class="skills">
+
+                <a href="https://www.w3schools.com/html/" target="_blank" class="skill-link">
+
+                    <div class="skill">
+
+                        <img src="/images/html.png" class="skill_img" alt="HTML">
+
+                        <span>HTML</span>
+
+                    </div>
+
+                </a>
+
+
+                <a href="https://www.w3schools.com/css/" target="_blank" class="skill-link">
+
+                    <div class="skill">
+
+                        <img src="/images/Css.png" class="skill_img" alt="CSS">
+
+                        <span>CSS</span>
+
+                    </div>
+
+                </a>
+
+
+                <a href="https://www.w3schools.com/js/" target="_blank" class="skill-link">
+
+                    <div class="skill">
+
+                        <img src="/images/js.png" class="skill_img" alt="JavaScript">
+
+                        <span>JavaScript</span>
+
+                    </div>
+
+                </a>
+
+
+                <a href="https://www.w3schools.com/python/" target="_blank" class="skill-link">
+
+                    <div class="skill">
+
+                        <img src="/images/py.png" class="skill_img" alt="Python">
+
+                        <span>Python</span>
+
+                    </div>
+
+                </a>
+
+
+                <a href="https://www.w3schools.com/sql/" target="_blank" class="skill-link">
+
+                    <div class="skill">
+
+                        <img src="/images/sql.png" class="skill_img" alt="SQL">
+
+                        <span>SQL</span>
+
+                    </div>
+
+                </a>
+
+
+                <a href="https://www.w3schools.com/lua/" target="_blank" class="skill-link">
+
+                    <div class="skill">
+
+                        <img src="/images/Lua.png" class="skill_img" alt="Lua">
+
+                        <span>Lua</span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
         </section>
 
+
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+
         <section id="projects">
-            <h2>My Projects</h2>
+
+            <div class="section-title">
+
+                <h2>My Projects</h2>
+
+                <div class="line"></div>
+
+            </div>
+
+
             <div class="projects">
+
                 <article class="project">
-                    <h3>Student Management System</h3>
+
+                    <div class="project-number">
+                        PROJECT 01
+                    </div>
+
+                    <h3>
+                        Student Management System
+                    </h3>
+
                     <p>
                         A simple application for managing student details,
                         marks, attendance, and course information.
                     </p>
+
                 </article>
+
+
                 <article class="project">
-                    <h3>Personal Portfolio</h3>
+
+                    <div class="project-number">
+                        PROJECT 02
+                    </div>
+
+                    <h3>
+                        Personal Portfolio
+                    </h3>
+
                     <p>
-                        A responsive personal website created using HTML5
-                        and CSS3 to showcase my skills and projects.
+                        A responsive personal website created using HTML
+                        and CSS to showcase my skills and projects.
                     </p>
+
                 </article>
+
+
                 <article class="project">
-                    <h3>Feedback System</h3>
+
+                    <div class="project-number">
+                        PROJECT 03
+                    </div>
+
+                    <h3>
+                        Feedback System
+                    </h3>
+
                     <p>
                         A web-based feedback system that allows users to
                         submit ratings and comments.
                     </p>
+
                 </article>
+
             </div>
+
         </section>
 
-        <section id="contact" class="contact">
-            <h2>Contact Me</h2>
-            <p><strong>Name:</strong> Manvith sagar K M</p>
-            <p><strong>Email:</strong> manvithskm26bca@blr.rvu.edu.in</p>
-            <p><strong>Phone:</strong> +91 9113035705</p>
-            <p><strong>Location:</strong> India</p>
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section id="contact">
+
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <div class="line"></div>
+            </div>
+
+            <!-- Message Form -->
+            <div id="message-form">
+
+                <h3>Send Me a Message</h3>
+
+                <form onsubmit="submitForm(event)">
+
+                    <div class="form-group">
+                        <label for="contact-name">Name</label>
+                        <input
+                            type="text"
+                            id="contact-name"
+                            placeholder="Enter your name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-email">Email</label>
+                        <input
+                            type="email"
+                            id="contact-email"
+                            placeholder="Enter your email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea
+                            id="contact-message"
+                            placeholder="Write your message..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn submit-btn">
+                        Submit
+                    </button>
+
+                </form>
+
+                <div id="thank-you">
+                    <h3>Thank You! 😊</h3>
+                    <p>
+                        Your message has been submitted successfully.
+                        I will get back to you soon.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Contact Details -->
+            <div class="contact-card">
+
+                <div class="contact-item">
+                    <strong>Name</strong>
+                    <span>Manvith Sagar K M</span>
+                </div>
+
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    <span>manvithskm26bca@blr.rvu.edu.in</span>
+                </div>
+
+                <div class="contact-item">
+                    <strong>Phone</strong>
+                    <span>+91 9113035705</span>
+                </div>
+
+                <div class="contact-item">
+                    <strong>Location</strong>
+                    <span>India</span>
+                </div>
+
+            </div>
+
+            <!-- Open Form Button -->
+            <div class="contact-button" id="contact-button-wrapper">
+                <button
+                    type="button"
+                    class="btn contact-btn"
+                    onclick="openForm()"
+                >
+                    Send Me a Message
+                </button>
+            </div>
+
         </section>
-    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
     <footer>
-        <p>&copy; 2026 Student Personal Website</p>
+
+        <p>
+            &copy; 2026
+            <span>Manvith Sagar K M</span>.
+            All Rights Reserved.
+        </p>
+
     </footer>
+<script>
+
+const CONTACT_SUBMITTED_KEY = "portfolioContactSubmitted";
+
+function openForm() {
+
+    if (localStorage.getItem(CONTACT_SUBMITTED_KEY) === "true") {
+        return;
+    }
+
+    const formBox = document.getElementById("message-form");
+
+    formBox.style.display = "block";
+
+    formBox.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+function submitForm(event) {
+
+    event.preventDefault();
+
+    const form = document.querySelector("#message-form form");
+    const thankYou = document.getElementById("thank-you");
+    const buttonWrapper = document.getElementById("contact-button-wrapper");
+
+    // Save the submission so the form will not appear again
+    localStorage.setItem(CONTACT_SUBMITTED_KEY, "true");
+
+    // Hide the form and button
+    form.style.display = "none";
+    buttonWrapper.style.display = "none";
+
+    // Show Thank You message
+    thankYou.style.display = "block";
+}
+
+function checkContactSubmission() {
+
+    if (localStorage.getItem(CONTACT_SUBMITTED_KEY) === "true") {
+
+        const formBox = document.getElementById("message-form");
+        const form = document.querySelector("#message-form form");
+        const thankYou = document.getElementById("thank-you");
+        const buttonWrapper = document.getElementById("contact-button-wrapper");
+
+        formBox.style.display = "block";
+        form.style.display = "none";
+        thankYou.style.display = "block";
+        buttonWrapper.style.display = "none";
+    }
+}
+
+window.addEventListener("DOMContentLoaded", checkContactSubmission);
+
+</script>
+
 </body>
 
 </html>

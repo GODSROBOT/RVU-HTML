@@ -1,214 +1,293 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Pages Lists</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pages List</title>
+
     <style>
-        .Pages {
-            border: 1px;
-            background-color: black;
-            padding: 5px;
-        };
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: cursive;
+            color: #222;
+
+            background: linear-gradient(280deg,
+                    #ffffff,
+                    #fffaf5,
+                    #fff0dc,
+                    #ffd6a0);
+
+            min-height: 100vh;
+        }
+
+
+
+        h1 {
+            text-align: center;
+            color: #111;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #e87500;
+            margin-bottom: 15px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .pages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .page {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-bottom: 3px solid rgb(255, 153, 0);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            transition: 0.2s ease;
+        }
+
+
+        .page:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .page h3 {
+            margin: 0;
+            color: rgb(0, 0, 0);
+            font-size: 17px;
+        }
+
+        .page a {
+            color: rgb(255, 115, 0);
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+
+        .page a:hover {
+            color: rgb(201, 122, 33);
+            text-decoration: underline;
+        }
     </style>
 </head>
 
-<body style="display: block;">
-    <h1 style="color: black; font-family: cursive;">Pages we have here</h1>
-    <div id="Pages">
-        <h3 >
-            Page 1 Basic Web Page
-            <a href="demo.html" target="_blank" style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 2 Textformatting
-            <a href="Textformatting.html" target="_blank"
-                style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 3 Lists
-            <a href="lists.html" target="_blank" style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 4 Hyperlinks
-            <a href="hyperlinks.html" target="_blank" style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 5 Images
-            <a href="Images.html" target="_blank" style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div  id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 6 Timetable
-            <a href="timetable.html" target="_blank" style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div  id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 7 Student Profile
-            <a href="StudentProfile.html" target="_blank"
-                style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div  id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 8 Resume
-            <a href="Resume.html" target="_blank" style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div  id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 9 Registration Form
-            <a href="registrationform.html" target="_blank"
-                style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div  id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 10 feedback Form
-            <a href="feedbackform.html" target="_blank"
-                style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div  id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 11 Favourite Movie
-            <a href="FavouriteMovie.html" target="_blank"
-                style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div  id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 12 Quote of the Day
-            <a href="QuoteoftheDay.html" target="_blank"
-                style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div  id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 13 Daily Routine
-            <a href="DailyRoutine.html" target="_blank"
-                style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div  id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 14 Shopping List
-            <a href="ShoppingList.html" target="_blank"
-                style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div  id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 15 Favorite Websites
-            <a href="FavoriteWebsites.html" target="_blank"
-                style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div  id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 16 Display Three Images
-            <a href="DisplayThreeImages.html" target="_blank"
-                style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div  id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 17 Class Subjects Table
-            <a href="ClassSubjectsTable.html" target="_blank"
-                style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div  id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 18 Contact Information
-            <a href="ContactInformation.html" target="_blank"
-                style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div  id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 19 Basic Login Form
-            <a href="BasicLoginForm.html" target="_blank"
-                style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div  id="Pages" style="display: flex;" border-bottom: 5px;>
-        <h3>
-            Page 20 Course Feedback
-            <a href="courseFeedback.html" target="_blank"
-                style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-        </h3>
-    </div>
-    <div style="margin: 15px;">
-        <h2>Mondays work (17/08/26)</h2>
-        <div id="Pages" >
-            <h3>
-                Page 1 Login form 
-                <a href="loginform.html" target="_blank"
-                    style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-            </h3>
-        </div>
-        <div id="Pages" >
-            <h3>
-                Page 2 registration form
-                <a href="registrationform2.html" target="_blank"
-                    style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-            </h3>
-        </div>
-        <div id="Pages" >
-            <h3>
-                Page 3 contact Form
-                <a href="contactform.html" target="_blank"
-                    style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-            </h3>
-        </div>
-        <div id="Pages" >
-            <h3>
-                Page 4 Student admission form
-                <a href="Studentadmissionform.html" target="_blank"
-                    style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-            </h3>
-        </div>
-        <div style="margin: 15px;">
-        <h2>Mondays work (24/08/26)</h2>
-        <div id="Pages" >
-            <h3>
-                Page 1 Student CV
-                <a href="/RVU-HTML/WithCss/StudentCV.html" target="_blank"
-                    style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-            </h3>
-        </div>
-        <div id="Pages" >
-            <h3>
-                Page 2 registration form
-                <a href="registrationform2.html" target="_blank"
-                    style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-            </h3>
-        </div>
-        <div id="Pages" >
-            <h3>
-                Page 3 contact Form
-                <a href="contactform.html" target="_blank"
-                    style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-            </h3>
-        </div>
-        <div id="Pages" >
-            <h3>
-                Page 4 Student admission form
-                <a href="Studentadmissionform.html" target="_blank"
-                    style="color: rgb(255, 115, 0); font-family: cursive;">ClickMe</a>
-            </h3>
-        </div>
+<body>
 
-    </div>
+    <h1>Pages We Have Here</h1>
+
+    <!-- Main Pages -->
+    <section class="section">
+        <h2>HTML Practice Pages</h2>
+
+        <div class="pages-container">
+
+            <div class="page">
+                <h3>Page 1 – Basic Web Page</h3>
+                <a href="demo.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 2 – Text Formatting</h3>
+                <a href="Textformatting.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 3 – Lists</h3>
+                <a href="lists.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 4 – Hyperlinks</h3>
+                <a href="hyperlinks.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 5 – Images</h3>
+                <a href="Images.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 6 – Timetable</h3>
+                <a href="timetable.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 7 – Student Profile</h3>
+                <a href="StudentProfile.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 8 – Resume</h3>
+                <a href="Resume.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 9 – Registration Form</h3>
+                <a href="registrationform.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 10 – Feedback Form</h3>
+                <a href="feedbackform.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 11 – Favourite Movie</h3>
+                <a href="FavouriteMovie.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 12 – Quote of the Day</h3>
+                <a href="QuoteoftheDay.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 13 – Daily Routine</h3>
+                <a href="DailyRoutine.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 14 – Shopping List</h3>
+                <a href="ShoppingList.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 15 – Favourite Websites</h3>
+                <a href="FavoriteWebsites.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 16 – Display Three Images</h3>
+                <a href="DisplayThreeImages.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 17 – Class Subjects Table</h3>
+                <a href="ClassSubjectsTable.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 18 – Contact Information</h3>
+                <a href="ContactInformation.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 19 – Basic Login Form</h3>
+                <a href="BasicLoginForm.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 20 – Course Feedback</h3>
+                <a href="courseFeedback.html" target="_blank">Click Me</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Monday's Work - 17/08/26 -->
+    <section class="section">
+        <h2>Monday's Work – 17/08/26</h2>
+
+        <div class="pages-container">
+
+            <div class="page">
+                <h3>Page 1 – Login Form</h3>
+                <a href="loginform.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 2 – Registration Form</h3>
+                <a href="registrationform2.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 3 – Contact Form</h3>
+                <a href="contactform.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 4 – Student Admission Form</h3>
+                <a href="Studentadmissionform.html" target="_blank">Click Me</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Monday's Work - 24/08/26 -->
+    <section class="section">
+        <h2>Monday's Work – 24/08/26</h2>
+
+        <div class="pages-container">
+
+            <div class="page">
+                <h3>Page 1 – Student CV</h3>
+                <a href="/WithCss/StudentCV.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 2 – Student Page</h3>
+                <a href="/WithCss/student.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 3 – Feedback Form</h3>
+                <a href="/WithCss/Feedback.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 4 – Feed</h3>
+                <a href="/WithCss/feed.html" target="_blank">Click Me</a>
+            </div>
+
+        </div>
+    </section>
+        <section class="section">
+        <h2>Monday's Work – 31/08/26</h2>
+
+        <div class="pages-container">
+
+            <div class="page">
+                <h3>Page 1 – studentMarks</h3>
+                <a href="/mondays/StudentMarks.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 2 – Student Page</h3>
+                <a href="/WithCss/student.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 3 – Feedback Form</h3>
+                <a href="/WithCss/Feedback.html" target="_blank">Click Me</a>
+            </div>
+
+            <div class="page">
+                <h3>Page 4 – Feed</h3>
+                <a href="/WithCss/feed.html" target="_blank">Click Me</a>
+            </div>
+
+        </div>
+    </section>
 
 </body>
 
